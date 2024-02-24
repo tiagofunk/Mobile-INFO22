@@ -1,52 +1,45 @@
+import {useState} from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Image, Alert, FlatList } from 'react-native';
 
 export default function App() {
 
-  function msg(){
-    Alert.alert("Botão foi clickado!")
+  const [nome,setNome] = useState(null);
+  const [mensagem,setMensagem] = useState(null);
+
+  function mostrarNome(){
+    setMensagem("Nome Digitado: " + nome)
   }
-  function mostrarItemLista(item){
-    return ( 
-      <View style={styles.item}>
-        <Text >{item}</Text>
-      </View>
-    )
-  }
-  
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title} >App de IMC do IFC</Text>
-      <Image
-          style={styles.logo}
-          source={require('./imagens/ifc.png')}
-        />
+      <Text style={styles.title} >Nome de pessoas</Text>
+      
       <View style={styles.container}>
-        <Text>Altura</Text>
+        <Text>Nome</Text>
         <TextInput 
-          placeholder='Ex 1.75'
-          keyboardType='numeric'
+          onChangeText={(text) => setNome(text) }
+          placeholder='Digite um nome'
+          keyboardType='default'
           style={styles.textInput}
           ></TextInput>
-        <Text>Peso</Text>
-        <TextInput 
-          placeholder='Ex 75.3'
-          keyboardType='numeric'
-          style={styles.textInput}  
-        />
         <View style={styles.buttonContainer}>
           <Button
             color='#000'
             style={styles.botao} 
-            title='Calcular'
-            onPress={msg} ></Button>
+            title='Adicionar'
+            onPress={mostrarNome} ></Button>
         </View>
 
-        <Text style={styles.title}>Lista de items</Text>
-        <FlatList
-          style={styles.list}
-          data={ ['Mobile',"Programação 2"] }
-          renderItem={({item}) => mostrarItemLista(item)}
-        />
+        <Text style={styles.title}>Resultado</Text>
+        <Text>{nome}</Text>
+        <Text>{mensagem}</Text>
+
+        {
+          nome == "Tiago" ?
+          <Text>Olá novamente</Text>
+          :
+          <Text>Não te conheço</Text>
+        }
           
       </View>
     </View>
