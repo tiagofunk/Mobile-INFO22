@@ -27,11 +27,37 @@ Comando para criar o projeto:
 
     npx create-expo-app <nome-do-projeto>
 
+**ATENÇÃO:** Atualmente o comando de criação do projeto esta usando a versão 51 do expo, o que altera a organização dos arquivos do projeto. É necessário fazer um downgrade para usar o expo na versão 50.
+
+## Downgrade para expo versão 50
+
+Execute o seguinte comando no terminal:
+
+    npm install expo@50.x
+
+Esse comando faz o downgrade para a versão 50 do expo. No entanto é necessário corrigir as dependencias, que pode ser feito com o seguinte comando:
+
+    npx expo install --fix
+
+Depois é necessário criar o arquivo `App.js`.
+
+Também é necesário atualizar o arquivo `package.json` para que contenha a seguinte linha (**Você deve atualizar a linha, não adicionar**):
+
+    "main": "node_modules/expo/AppEntry.js",
+
+Aqui você pode executar o projeto, só que pode ocorrer um erro de versão incompatível no aplicativo no dispositivo fisico. No próprio aplicativo vai aparecer um link para baixar um apk para usar com a versão 50.
+
+Baixe o apk, forneça a permissão para executar e instale. Pode ser necessário desinstalar o Expo Go para instalar pelo apk.
+
+No emulador deve funcionar normalmente, independete da versão do expo go.
+
+
+
 # Executar projeto
 
 ## Executar projeto no computador e celular (Android e IOS)
 
-É necessário que o computador e o celular estejam na mesma rede Wi-fi.
+**É necessário que o computador e o celular estejam na mesma rede Wi-fi.**
 
 Abra o terminal, navegue até a pasta do projeto (usando o comando `cd`) e digite o seguinte comando:
 
