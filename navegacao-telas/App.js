@@ -4,61 +4,65 @@ import { StyleSheet, Text, TextInput, View, Button, Image, Alert, FlatList } fro
 
 const PilhaTelas = createNativeStackNavigator()
 
-function PrimeiraTela( {navigation} ){
+function PrimeiraTela( {route, navigation} ){
     return (
         <View style={styles.container}>
             <Text style={styles.titulo}>Primeira Tela</Text>
             <Button
                 title='Ir para a outra tela'
                 color="red"
-                onPress={()=>navigation.navigate('SegundaTela')}
+                onPress={function(){ navigation.navigate('SegundaTela') }}
             />
             <Button
                 title='Escolher pessoa'
                 color="red"
-                onPress={()=>navigation.navigate('TelaEscolherPessoa')}
+                onPress={function(){ navigation.navigate('TelaEscolherPessoa') }}
             />
         </View>
     )
 }
 
-function SegundaTela( {navigation} ){
+function SegundaTela( {route, navigation} ){
     return (
         <View style={styles.container}>
             <Text style={styles.titulo}>Segunda Tela</Text>
             <Button
                 title='Voltar para o inicio'
                 color="red"
-                onPress={()=>navigation.navigate('PrimeiraTela')}
+                onPress={function(){ navigation.navigate('PrimeiraTela') }}
             />
             <Button
                 title='Voltar'
                 color="red"
-                onPress={()=>navigation.goBack()}
+                onPress={function(){ navigation.goBack() }}
             />
         </View>
     )
 }
 
-function TelaEscolherPessoa( {navigation} ){
+function TelaEscolherPessoa( {route, navigation} ){
     return (
         <View style={styles.container}>
             <Text style={styles.titulo}>Escolha uma pessoa</Text>
             <Button
                 title='Tiago'
                 color="black"
-                onPress={()=>navigation.navigate('TelaPessoa',{
-                    nome:"Tiago",
-                    descricao: "Professor da matéria"
-                })}
+                onPress={function(){
+                    navigation.navigate('TelaPessoa',{
+                        nome:"Tiago",
+                        descricao: "Professor da matéria"
+                    })
+                }}
             />
             <Button
                 title='Caio'
                 color="black"
-                onPress={()=>navigation.navigate('TelaPessoa',{
-                    nome:"Caio",
-                    descricao: "Aluno e líder da turma"
-                })}
+                onPress={function(){
+                    navigation.navigate('TelaPessoa',{
+                        nome:"Caio",
+                        descricao: "Aluno e líder da turma"
+                    })
+                }}
             />
         </View>
     )
@@ -72,12 +76,16 @@ function TelaPessoa( {route, navigation} ){
             <Button
                 title='Voltar para o inicio'
                 color="red"
-                onPress={()=>navigation.navigate('PrimeiraTela')}
+                onPress={function(){
+                    navigation.navigate('PrimeiraTela')
+                }}
             />
             <Button
                 title='Voltar'
                 color="red"
-                onPress={()=>navigation.goBack()}
+                onPress={function(){
+                    navigation.goBack()
+                }}
             />
         </View>
     )
@@ -91,19 +99,7 @@ export default function App() {
             <PilhaTelas.Screen
                 name="PrimeiraTela"
                 component={PrimeiraTela}
-                options={{
-                    title:"Tela inicial",
-                    headerStyle:{
-                        backgroundColor:'blue'
-                    },
-                    headerTintColor:"white",
-                    headerRight:()=>(
-                        <Button
-                            title="Pessoas"
-                            color='black'
-                            onPress={()=>alert("teste")}/>
-                    )
-                }}
+                options={{title:"Tela inicial"}}
             />
             <PilhaTelas.Screen
                 name="SegundaTela"
