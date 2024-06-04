@@ -51,6 +51,17 @@ Baixe o apk, forneça a permissão para executar e instale. Pode ser necessário
 
 No emulador deve funcionar normalmente, independete da versão do expo go.
 
+# Dependências para navegação entre telas
+
+É necessário instalar as seguintes dependências:
+
+    npm install @react-navigation/native @react-navigation/native-stack
+
+E depois, como já estamos utilizando o expo, basta instalar as seguintes depedências:
+
+    npx expo install react-native-screens react-native-safe-area-context
+
+Para mais detalhes, clique [Aqui](https://reactnative.dev/docs/navigation#installation-and-setup).
 
 
 # Executar projeto
