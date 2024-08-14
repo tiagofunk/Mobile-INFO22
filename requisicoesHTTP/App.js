@@ -11,10 +11,8 @@ function TelaInicial( {route, navigation }){
 
   useEffect(() => {
     fetch(URL_API).then(resposta => resposta.json())
-    .then( json => { 
-      setUsers(json)
-      console.log("Teste");
-    }).catch( () => {
+    .then( json => { setUsers(json) })
+    .catch( () => {
       Alert.alert('Erro', 'Não foi possível carregar os dados dos usuarios');
     });
   },[])
@@ -42,10 +40,7 @@ function VisualizarUsuario( {route, navegation }){
 
   useEffect(() => {
     fetch(`${URL_API}/${route.params.id}`).then(resposta => resposta.json())
-    .then( json => { 
-      setUser(json)
-      console.log(`Teste ${route.params.id}`);
-    }).catch( () => {
+    .then( json => { setUser(json) }).catch( () => {
       Alert.alert('Erro', 'Não foi possível carregar os dados dos usuarios');
     });
   }, [route.params.id])
