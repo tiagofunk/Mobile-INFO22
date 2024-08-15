@@ -63,6 +63,20 @@ E depois, como já estamos utilizando o expo, basta instalar as seguintes deped�
 
 Para mais detalhes, clique [Aqui](https://reactnative.dev/docs/navigation#installation-and-setup).
 
+# Conexão do emulador com internet
+
+Para que o que emulador android possa se conectar à internet, é necessário alterar o DNS primário do computador para os seguinte valor:
+
+        8.8.8.8
+
+É necessário alterar o DNS secundário do computador para o seguinte valor:
+
+        8.8.8.4
+
+# Dependências para salvar dados localmente
+
+        npm install sync-storage
+
 
 # Executar projeto
 
