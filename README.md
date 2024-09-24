@@ -51,7 +51,7 @@ Baixe o apk, forneça a permissão para executar e instale. Pode ser necessário
 
 No emulador deve funcionar normalmente, independete da versão do expo go.
 
-# Dependências para navegação entre telas
+## Dependências para navegação entre telas
 
 É necessário instalar as seguintes dependências:
 
@@ -63,6 +63,32 @@ E depois, como já estamos utilizando o expo, basta instalar as seguintes deped�
 
 Para mais detalhes, clique [Aqui](https://reactnative.dev/docs/navigation#installation-and-setup).
 
+## Dependências para salvar dados localmente
+
+    npm install sync-storage
+
+## Dependências para geolocalização
+
+Biblioteca de geolocalização
+
+    npx expo install @react-native-community/geolocation
+
+Biblioteca para envio de requisições HTTP:
+
+    npm install axios
+
+Ainda é necessário ajustar o arquivo `app.json`
+
+    "plugins": [
+      ...,
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
+    ],
+
 # Conexão do emulador com internet
 
 Para que o que emulador android possa se conectar à internet, é necessário alterar o DNS primário do computador para os seguinte valor:
@@ -72,11 +98,6 @@ Para que o que emulador android possa se conectar à internet, é necessário al
 É necessário alterar o DNS secundário do computador para o seguinte valor:
 
         8.8.8.4
-
-# Dependências para salvar dados localmente
-
-        npm install sync-storage
-
 
 # Executar projeto
 
