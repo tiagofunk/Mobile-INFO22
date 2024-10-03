@@ -77,6 +77,10 @@ Biblioteca para envio de requisições HTTP:
 
     npm install axios
 
+Biblioteca de dependência do plugin:
+
+    npm install expo-location expo-task-manager
+
 Ainda é necessário ajustar o arquivo `app.json`
 
     "plugins": [
