@@ -16,7 +16,11 @@ export default function App() {
             console.log(url)
 
             try {
-                const response = await axios.get(url)
+                const response = await axios.get( url,{
+                    headers: {
+                      'User-Agent': 'YourAppName/1.0'
+                    }
+                } )
                 const address = response.data.address
                 
                 if (address && address.country) {
